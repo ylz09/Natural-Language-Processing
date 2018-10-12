@@ -30,3 +30,50 @@ How to check the result of cross-validation
 The design, implementation, and result:
 	assignment2_solution.pdf
 
+N-gram
+---------------------------------------------------------------
+For letter prediction, each gram is letter instead of word.
+For example: hello
+	unigram: h|e|l|o
+	bigram:	 he|el|ll|o
+	trigram: hel|ell|llo
+	4-gram:  hell|ello
+	5-gram:  hello
+why we use n-gram? It simplifys our prediction. For the hello 
+example: 
+	if we type hell, what's the most possible of the next character?
+It might be the following set:
+	hell[a-zA-Z]
+	then, we need the history to make the decision, right?
+	The problem is how long the history we need to learn. There's a 
+trade-off to make this decision. If the history is too long, also known
+as very large N of N-gram, it might overfitting. On the other hand,
+if it's too short, also know as very small N of N-gram, it's very near
+to guess the most frequent charactor in the training model.
+	Basically, we need to adjust this N based on the training set.
+N range from 1 to 6 is the normal case.
+
+
+How to train the model
+---------------------------------------------------------------
+It's pretty straitforward. We just need split the word based on
+which n-gram we use. There's no need to worry about the space.
+In this task the space is the upper left of the keyboard, so it's
+better than any prediction already.
+
+How to make prediction
+---------------------------------------------------------------
+This is the most interesting part. Basically, there are 2 methods
+to do this work.
+1st, 
+
+
+
+
+
+
+
+
+
+
+
