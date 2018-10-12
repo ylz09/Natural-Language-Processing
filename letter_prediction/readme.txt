@@ -1,0 +1,30 @@
+This project is implemented using c++14
+
+The needed file list:
+	brown.test: the small corpus
+	brown.txt: the large corpus
+	keyboard.txt: keyboard
+	GetScanTime.pl: the test script
+	prediction.cpp: the main source file
+	prediction.h: the header file
+	a.out: the compiled executable file
+	readme: the instruction
+	assignment_solution.pdf: the details about this project
+
+There 2 files: 
+	prediction.cpp
+	prediction.h
+
+How to compile:
+	g++ -std=c++14 prediction.cpp
+
+How to run:
+	./a.out
+
+How to check the result of cross-validation
+	./batch.sh
+	The result will output to the standard output
+
+The design, implementation, and result:
+	assignment2_solution.pdf
+
