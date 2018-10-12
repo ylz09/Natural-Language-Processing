@@ -41,16 +41,19 @@ For example: hello
 	5-gram:  hello
 why we use n-gram? It simplifys our prediction. For the hello 
 example: 
-	if we type hell, what's the most possible of the next character?
+
+if we type hell, what's the most possible of the next character?
 It might be the following set:
 	hell[a-zA-Z]
-	then, we need the history to make the decision, right?
-	The problem is how long the history we need to learn. There's a 
+then, we need the history to make the decision, right?
+
+The problem is how long the history we need to learn. There's a 
 trade-off to make this decision. If the history is too long, also known
 as very large N of N-gram, it might overfitting. On the other hand,
 if it's too short, also know as very small N of N-gram, it's very near
 to guess the most frequent charactor in the training model.
-	Basically, we need to adjust this N based on the training set.
+
+Basically, we need to adjust this N based on the training set.
 N range from 1 to 6 is the normal case.
 
 
@@ -65,7 +68,27 @@ How to make prediction
 ---------------------------------------------------------------
 This is the most interesting part. Basically, there are 2 methods
 to do this work.
-1st, 
+1st, which ngram to use? In this letter prediction applicatoin, it's 
+better to use combined n-grams. 
+2nd, for each n-gram, we can sum all the frequent of the predicted
+next character. For example, if we type "hell" what's the next char?
+
+	1-gram:  [a-z] :  an array of 26 frequency 
+	2-gram: l[a-z] :  an array of 26 frequency
+	......
+	5-gram: hell[a-z]:  an array of 26 frequency
+
+So, if you are allowed to return the best k candidates. You can simply
+count the total frequency of each char, then return the maximum k chars.
+The drawback is that the n-grams lost their equal rights to vote :)
+For example, the frequency of 1-gram maybe very large, then the all the 
+k candidate would decided by 1-gram, and other n-grams will cry due to
+their hard work is ignored! Which will lead to bad result.
+
+So, the next plan is to treat each n-gram equal. The simple way is to just 
+normalize the frequency. Then the problem is to choose k largest value from
+5 array!! If you are familar with algorithm, you know the efficient method 
+is to use min heap with size k. Done!
 
 
 
