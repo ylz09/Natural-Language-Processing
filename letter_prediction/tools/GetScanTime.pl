@@ -1,8 +1,5 @@
 #!/usr/bin/perl
 #
-# CISC 882 Fall 2009
-# Amy Siu 10/03/2009
-#
 # This script calculates the scan time for "typing" a passage of text using an
 # AAC (Augmentative or Alternative Communication) keyboard.
 #
@@ -42,9 +39,6 @@
 #           does not exist in the keyboard layout will trigger a warning in the
 #           report.
 #
-#
-# Revision history:
-# 1.0  10/01/2009  Amy Siu  Initial version.
 #
 ####################################################################################
 
