@@ -1,5 +1,5 @@
 Letter prediction
----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 This project is implemented using c++14
 
 The needed file list:
@@ -31,7 +31,7 @@ The design, implementation, and result:
 	assignment2_solution.pdf
 
 N-gram
----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 For letter prediction, each gram is letter instead of word.
 For example: hello
 	unigram: h|e|l|o
@@ -58,14 +58,14 @@ N range from 1 to 6 is the normal case.
 
 
 How to train the model
----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 It's pretty straitforward. We just need split the word based on
 which n-gram we use. There's no need to worry about the space.
 In this task the space is the upper left of the keyboard, so it's
 better than any prediction already.
 
 How to make prediction
----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 This is the most interesting part. Basically, there are 2 methods
 to do this work.
 1st, which ngram to use? In this letter prediction applicatoin, it's 
