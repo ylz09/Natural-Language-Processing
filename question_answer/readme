@@ -1,0 +1,69 @@
+This is project use the perl regular expression to simulate an question& answer systme
+
+The main process: 
+-------------------------------------------------------------------------------------
+	1. analyze the question type
+		what/how question
+		did/do/is question
+	2. define the matching rules using regular expression
+	3. parse the user question using the defined rules
+	4. search the targeted text using the parsed rules
+
+File description
+-------------------------------------------------------------------------------------
+	question_answer.pl: source code
+	training_text: the text used to learn the rules
+	test_text:  the answer text used to answer the question
+	question_example: the question examples
+
+Programming language
+-------------------------------------------------------------------------------------
+	perl
+
+QA system operation
+-------------------------------------------------------------------------------------
+	CMD mode:
+		perl question_answer.pl training_text # need type the question
+		perl question_answer.pl training_text < question_example # same as File mode
+	File mode:
+		perl question_answer.pl training_text question_example
+		perl question_answer.pl test_text question_example
+
+System design & implementation
+-------------------------------------------------------------------------------------
+	1. Two type questions supported:
+		What/how type: the answer is a exact number.
+		Did type: the answer is a trend: rise or fall
+			Trend 0: Fall or not
+			Trend 1: Rise or not
+			Trend 2: Fall or Rise
+	2. Main work flow
+		a. define the parse rules for:
+			company names
+			verbs
+			question types
+			trends
+		b. read question from STDIN or File handlers
+		c. foreach question:
+			read answer-file by line
+			match the line with predefined regular expression
+			identify the question type first
+			check every possible solution
+		d. return all the possible answers
+		e. or tell user no available information
+		f. answer the next question
+	3. Key features
+		I. regular expression
+		II. improve the efficency by pruning the candidate space
+			e.g. if a line without company name, skip it without further match
+			     if a line without number, skip the what/how question
+		III. only REG, no NLP tools
+
+Special feature or limitation
+-------------------------------------------------------------------------------------
+	Friendly user interactive design
+	Fuzzy question recognition
+	The what/how type question takes 1 or 2 minutes 
+
+
+	
