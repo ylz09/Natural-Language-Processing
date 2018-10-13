@@ -1,4 +1,4 @@
-    #!/usr/bin/perl
+#!/usr/bin/perl
 use warnings;
 use strict;
 
@@ -88,7 +88,6 @@ while (<$QuestionHandler>){
     }elsif(/$Close/){
         $Verb = $Close;
     }
-	#else { print "No available information due to no such prediction.\n";next;}
 
 	# Output Question and Answer if exist
 	print "--------------------------------------------------------------------------";
@@ -106,7 +105,6 @@ while (<$QuestionHandler>){
 		}
 
         if($Type == 0) {
-			#if(/$Verb/ eq ""){next;}
 			if($Trend == 2){
            	    $found = 1;
 				if(/$Increase/){
@@ -128,12 +126,10 @@ while (<$QuestionHandler>){
         }
         elsif ($Type == 1) {
 			if(/$Numbers/ eq "") {next;}
-			#if(/$Verb/ eq ""){next;}
             if (/$CompanyName.*?($Verb $Numbers)/) {
                 $found = 1;
                 print "A: $4\n";
                 print "Source(line $lineNo): $_\n" ;
-				#print " (line $lineNo)\n";
             }
             elsif (/$CompanyName.*?($Numbers $Verb)/)
             {
@@ -141,7 +137,6 @@ while (<$QuestionHandler>){
 				if($3 eq "500") {next;}
                 print "A: $3\n";
                 print "Source(line $lineNo): $_\n"; 
-				#print "(line $lineNo)\n";
             }
         }
 		else{
